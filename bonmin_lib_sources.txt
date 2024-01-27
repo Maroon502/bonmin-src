@@ -60,4 +60,3 @@ Interfaces/BonRegisteredOptions.cpp
 Interfaces/Ipopt/BonIpoptInteriorWarmStarter.cpp
 Interfaces/Ipopt/BonIpoptSolver.cpp
 Interfaces/Ipopt/BonIpoptWarmStart.cpp
-Interfaces/BonStdCInterface.cpp

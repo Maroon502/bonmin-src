@@ -35,6 +35,14 @@ fn build_lib_and_link() {
             .display()
     );
 
+    let src_dir_interface = format!(
+        "{}",
+        PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap())
+            .join("BonminCInterface")
+            .join("src")
+            .display()
+    );
+
     let mut includes_dir = vec![
         format!("{}/Algorithms", src_dir),
         format!("{}/Algorithms/Branching", src_dir),
@@ -52,6 +60,12 @@ fn build_lib_and_link() {
         .split('\n')
         .map(|file| format!("{}/{}", src_dir, file.trim()))
         .collect::<Vec<String>>();
+
+    includes_dir.push(src_dir_interface.to_string());
+    lib_sources.extend(vec![
+        format!("{}/BonStdCInterface.cpp", src_dir_interface),
+        format!("{}/BonStdInterfaceTMINLP.cpp", src_dir_interface),
+    ]);
 
     let mut coinflags = vec!["Bonmin".to_string()];
 

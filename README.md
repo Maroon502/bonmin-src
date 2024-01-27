@@ -27,6 +27,8 @@ By this package, you don't need to worry about installing Bonmin in the system, 
 
 This package does not provide bindings. Please use [coinbonmin-sys] to use Bonmin, e.g.
 
+> Note: The C interface is taken from the master branch of [Bonmin], which is still has a number of todos.
+
 ## Configuration
 
 The following Cargo features are supported:

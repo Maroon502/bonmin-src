@@ -15,9 +15,8 @@ authors = [
 ]
 exclude = [
     "Bonmin/**/*",
-    "!Bonmin/src/**/*",
+    "!Bonmin/Bonmin/src/**/*",
     "!**/LICENSE",
-    "!**/AUTHORS",
 ]
 
 [features]
