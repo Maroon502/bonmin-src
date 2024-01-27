@@ -1,0 +1,3 @@
+[submodule "Bonmin"]
+	path = Bonmin
+	url = https://github.com/coin-or/Bonmin.git

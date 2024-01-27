@@ -1,0 +1,35 @@
+[package]
+name = "bonmin-src"
+version = "0.1.0+1.8.9"
+edition = "2021"
+build = "build.rs"
+links = "Bonmin"
+license = "Apache-2.0"
+description = "Redistribution of Coin-OR Bonmin as a crate"
+documentation = "https://docs.rs/bonmin-src/"
+repository = "https://github.com/Maroon502/bonmin-src.git"
+keywords = ["coin-or", "bonmin", "bonmin-src"]
+readme = "README.md"
+authors = [
+    "Maroon502<maroon502@outlook.com>"
+]
+exclude = [
+    "Bonmin/**/*",
+    "!Bonmin/src/**/*",
+    "!**/LICENSE",
+    "!**/AUTHORS",
+]
+
+[features]
+default = ["ipopt-src/default"]
+
+cplex = []
+filtersqp = []
+
+[dependencies]
+ipopt-src = { version = "0.2", default-features = false }
+cbc-src = "0.2"
+
+[build-dependencies]
+cc = { version = "1.0", features = ["parallel"] }
+coin-build-tools = "0.2"
