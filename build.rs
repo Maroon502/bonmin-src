@@ -19,6 +19,8 @@ fn main() {
         LIB_NAME.to_ascii_uppercase()
     );
 
+    let want_system = utils::want_system(LIB_NAME);
+
     if want_system && link::link_lib_system_if_supported(LIB_NAME) {
         let mut coinflags = vec!["BONMIN".to_string()];
 
@@ -33,8 +35,6 @@ fn main() {
     
         let (_, coinflags_other) = coinbuilder::get_metadata_from("Ipopt");
         coinflags.extend(coinflags_other);
-    
-        coinbuilder::print_metadata(includes_dir.clone(), coinflags.clone());
 
         coinbuilder::print_metadata(Vec::new(), coinflags);
         return;
