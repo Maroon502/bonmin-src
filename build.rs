@@ -1,7 +1,7 @@
 use std::env;
 use std::path::{Path, PathBuf};
 
-use coin_build_tools::{coinbuilder, utils};
+use coin_build_tools::{coinbuilder, link, utils};
 
 const LIB_NAME: &str = "Bonmin";
 
@@ -18,6 +18,27 @@ fn main() {
         "cargo:rerun-if-env-changed=CARGO_{}_SYSTEM",
         LIB_NAME.to_ascii_uppercase()
     );
+
+    if want_system && link::link_lib_system_if_supported(LIB_NAME) {
+        let mut coinflags = vec!["BONMIN".to_string()];
+
+        if cfg!(feature = "filtersqp") {
+            coinflags.push("FILTERSQP".to_string());
+        }
+        if cfg!(feature = "cplex") {
+            coinflags.push("CPX".to_string());
+        }
+        let (_, coinflags_other) = coinbuilder::get_metadata_from("Cbc");
+        coinflags.extend(coinflags_other);
+    
+        let (_, coinflags_other) = coinbuilder::get_metadata_from("Ipopt");
+        coinflags.extend(coinflags_other);
+    
+        coinbuilder::print_metadata(includes_dir.clone(), coinflags.clone());
+
+        coinbuilder::print_metadata(Vec::new(), coinflags);
+        return;
+    }
 
     if !Path::new(&format!("{}/LICENSE", LIB_NAME)).exists() {
         utils::update_submodules(env::var("CARGO_MANIFEST_DIR").unwrap());
