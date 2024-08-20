@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2+1.8.9](https://github.com/Maroon502/bonmin-src/compare/v0.1.1+1.8.9...v0.1.2+1.8.9) - 2024-08-20
+
+### Other
+- Bump cc from 1.0 to 1.1
+
 ## [0.1.1+1.8.9](https://github.com/Maroon502/bonmin-src/compare/v0.1.0+1.8.9...v0.1.1+1.8.9) - 2024-04-11
 
 ### Added
