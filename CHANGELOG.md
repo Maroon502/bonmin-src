@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2+1.8.9](https://github.com/Maroon502/bonmin-src/compare/v0.1.1+1.8.9...v0.1.2+1.8.9) - 2025-12-14
+
+### Other
+
+- *(deps)* bump actions/checkout from 4 to 6 ([#4](https://github.com/Maroon502/bonmin-src/pull/4))
+- Bump cc from 1.0 to 1.1
+
 ## [0.1.1+1.8.9](https://github.com/Maroon502/bonmin-src/compare/v0.1.0+1.8.9...v0.1.1+1.8.9) - 2024-04-11
 
 ### Added
